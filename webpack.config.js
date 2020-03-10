@@ -8,7 +8,16 @@ module.exports = {
         filename: 'bundle.js'
     },
     devServer: {
-        contentBase: './dist '
+        contentBase: './dist'
+    },
+    module: {
+        rules: [
+            test: /\.(.js|.jsx)$/,
+            exclue: /node_modules/,
+            use: ['babel-loader']
+        ]
+    },
+    resolve: {
+        extensions: ['js', 'jsx']
     }
-
 }
