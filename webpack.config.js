@@ -1,7 +1,5 @@
 module.exports = {
-    entry: [
-        './src/index.js'
-    ],
+    entry: ['./src/index.js'],
     output: {
         path: __dirname + '/dist',
         publicPath: '/',
@@ -12,12 +10,19 @@ module.exports = {
     },
     module: {
         rules: [
-            test: /\.(.js|.jsx)$/,
-            exclue: /node_modules/,
-            use: ['babel-loader']
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: ['babel-loader']
+            },
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: ['eslint-loader']
+            }
         ]
     },
     resolve: {
-        extensions: ['js', 'jsx']
+        extensions: ['.js', '.jsx']
     }
-}
+};
